@@ -1,11 +1,12 @@
 from pbf.helpers.file_helper import IsDirectory
+from pbf.templates.template_loader import TemplateLoader
 from pbf_kao_flask.templates import TemplatesRoot
-from pbf.templates import template_manager
 
 import os
 
 class NewRoutes:
     """ Command to add a new routes file """
+    TEMPLATE_LOADER = TemplateLoader("routes.py", TemplatesRoot, defaultFilename="routes.py")
                           
     def addArguments(self, parser):
         """ Add arguments to the parser """
@@ -18,7 +19,4 @@ class NewRoutes:
         
     def createRoutes(self, filepath):
         """ Create a Routes """
-        if IsDirectory(filepath):
-            filepath = os.path.join(filepath, 'routes.py')
-        keywords = {}
-        template_manager.CopyTemplate(filepath, "routes.py", keywords, TemplatesRoot) # Add proper template file name here
+        self.TEMPLATE_LOADER.copy(filepath)
