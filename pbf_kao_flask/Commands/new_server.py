@@ -16,5 +16,4 @@ class NewServer:
         
     def createServer(self, filepath):
         """ Create a Server """
-        keywords = {}
-        self.TEMPLATE_LOADER.copy(filepath, keywords=keywords)
+        self.TEMPLATE_LOADER.copy(filepath)
