@@ -1,4 +1,3 @@
-from pbf.helpers.file_helper import IsDirectory
 from pbf.templates.template_loader import TemplateLoader
 from pbf_kao_flask.templates import TemplatesRoot
 
